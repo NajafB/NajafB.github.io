@@ -1,3 +1,5 @@
+Access-Control-Allow-Origin: *
+    
 const KEY = "1abb7a6c4c7c40c8801100948220411"
 
 let time = new Date;
