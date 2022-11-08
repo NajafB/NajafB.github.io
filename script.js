@@ -1,5 +1,3 @@
-Access-Control-Allow-Origin: *
-    
 const KEY = "1abb7a6c4c7c40c8801100948220411"
 
 let time = new Date;
@@ -25,7 +23,11 @@ document.getElementById('forecast-sunday').innerHTML=daySeventh;
 async function fetWeather(locationCity) {
 
     const API= `http://api.weatherapi.com/v1/forecast.json?key=${KEY}&q=${locationCity}&days=7`;
-    const res = await fetch(API);
+     const res = await fetch(API,{
+       
+        headers:{"Access-Control-Allow-Origin":"*"}
+        
+    });
     const data = await res.json();
     console.log(data);
 
