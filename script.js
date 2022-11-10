@@ -21,9 +21,9 @@ document.getElementById('forecast-sunday').innerHTML=daySeventh;
 
 
 async function fetWeather(locationCity) {
-
+    
     const API= `http://api.weatherapi.com/v1/forecast.json?key=${KEY}&q=${locationCity}&days=7`;
-     const res = await fetch(API,{
+    const res = await fetch(API,{
        
         headers:{"Access-Control-Allow-Origin":"*"}
         
@@ -105,10 +105,90 @@ async function fetWeather(locationCity) {
     forecastSundayIcon.src=data.forecast.forecastday[6].day.condition.icon;
     forecastSundayDay.innerHTML=data.forecast.forecastday[6].day.maxtemp_c;
     forecastSundayNight.innerHTML=data.forecast.forecastday[6].day.mintemp_c;
+
+    let forecastEventFirst= document.getElementById("forecast-monday")
+
+    forecastEventFirst.addEventListener("click",()=>{
+        currentTemp.innerText = data.current.temp_c;
+        currentHumidity.innerText=data.current.humidity;
+        currentIcon.src = data.current.condition.icon;
+        currentPressure.innerText=data.current.pressure_mb;
+        currentWindspeed.innerText=data.current.wind_kph;
+        document.getElementById('current-date').innerHTML=dayFirst;
+    });
+
+
+    let forecastEventSecond = document.getElementById("forecast-tuesday")
+
+    forecastEventSecond.addEventListener("click",()=>{
+        currentTemp.innerText = data.forecast.forecastday[1].day.avgtemp_c;
+        currentHumidity.innerText=data.forecast.forecastday[1].day.avghumidity;
+        currentWindspeed.innerText=data.forecast.forecastday[1].day.maxwind_kph;
+        document.getElementById('current-date').innerHTML=daySecond;
+    });
+
+    let forecastEventThird = document.getElementById("forecast-wednesday")
+
+    forecastEventThird.addEventListener("click",()=>{
+        currentTemp.innerText = data.forecast.forecastday[2].day.avgtemp_c;
+        currentHumidity.innerText=data.forecast.forecastday[2].day.avghumidity;
+        currentWindspeed.innerText=data.forecast.forecastday[2].day.maxwind_kph;
+        document.getElementById('current-date').innerHTML=dayThird;
+    });
+
+    let forecastEventFourth = document.getElementById("forecast-thursday")
+
+    forecastEventFourth.addEventListener("click",()=>{
+        currentTemp.innerText = data.forecast.forecastday[3].day.avgtemp_c;
+        currentHumidity.innerText=data.forecast.forecastday[3].day.avghumidity;
+        currentWindspeed.innerText=data.forecast.forecastday[3].day.maxwind_kph;
+        document.getElementById('current-date').innerHTML=dayFourth;
+    });
+
+    let forecastEventFifth= document.getElementById("forecast-friday")
+
+    forecastEventFifth.addEventListener("click",()=>{
+        currentTemp.innerText = data.forecast.forecastday[4].day.avgtemp_c;
+        currentHumidity.innerText=data.forecast.forecastday[4].day.avghumidity;
+        currentWindspeed.innerText=data.forecast.forecastday[4].day.maxwind_kph;
+        document.getElementById('current-date').innerHTML=dayFifth;
+    });
+
+    let forecastEventSixth = document.getElementById("forecast-saturday")
+
+    forecastEventSixth.addEventListener("click",()=>{
+        currentTemp.innerText = data.forecast.forecastday[5].day.avgtemp_c;
+        currentHumidity.innerText=data.forecast.forecastday[5].day.avghumidity;
+        currentWindspeed.innerText=data.forecast.forecastday[5].day.maxwind_kph;
+        document.getElementById('current-date').innerHTML=daySixth;
+    });
+
+    let forecastEventSeventh = document.getElementById("forecast-sunday")
+
+    forecastEventSeventh.addEventListener("click",()=>{
+        currentTemp.innerText = data.forecast.forecastday[6].day.avgtemp_c;
+        currentHumidity.innerText=data.forecast.forecastday[6].day.avghumidity;
+        currentWindspeed.innerText=data.forecast.forecastday[6].day.maxwind_kph;
+        document.getElementById('current-date').innerHTML=daySeventh;
+    });
 }
 
-const input = document.querySelector('input');
+
+const input = document.querySelector("input");
 
 input.addEventListener('input',()=>{
     fetWeather(input.value);
+})
+
+let forecastEventCoursor = document.getElementsByClassName('forecast-item');
+Array.from(forecastEventCoursor).forEach(function(forecastEventCoursor) {
+    forecastEventCoursor.addEventListener('mouseover', () =>{
+        forecastEventCoursor.style.borderColor = "rgb(160, 205, 71)";
+        forecastEventCoursor.style.cursor = "pointer"
+    });
+    forecastEventCoursor.addEventListener('mouseout',()=>{
+    forecastEventCoursor.style.borderColor = "rgb(159, 160, 156)";
+    })
+    
+
 })
