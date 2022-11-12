@@ -22,7 +22,7 @@ document.getElementById('forecast-sunday').innerHTML=daySeventh;
 
 async function fetWeather(locationCity) {
     
-    const API= `http://api.weatherapi.com/v1/forecast.json?key=${KEY}&q=${locationCity}&days=7`;
+    const API= `https://api.weatherapi.com/v1/forecast.json?key=${KEY}&q=${locationCity}&days=7`;
     const res = await fetch(API,{
        
         headers:{"Access-Control-Allow-Origin":"*"}
