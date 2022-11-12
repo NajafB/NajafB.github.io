@@ -74,35 +74,35 @@ async function fetWeather(locationCity) {
     location.innerHTML = data.location.name+","+data.location.country;
     currentTemp.innerText = data.current.temp_c;
     currentHumidity.innerText=data.current.humidity;
-    currentIcon.src = data.current.condition.icon;
+    currentIcon.src = "https:" + data.current.condition.icon;
     currentPressure.innerText=data.current.pressure_mb;
     currentWindspeed.innerText=data.current.wind_kph;
 
-    forecastFirstIcon.src=data.forecast.forecastday[0].day.condition.icon;
+    forecastFirstIcon.src="https:" + data.forecast.forecastday[0].day.condition.icon;
     forecastFirstDay.innerHTML=data.forecast.forecastday[0].day.maxtemp_c;
     forecastFirstNight.innerHTML=data.forecast.forecastday[0].day.mintemp_c;
 
-    forecastSecondIcon.src=data.forecast.forecastday[1].day.condition.icon;
+    forecastSecondIcon.src="https:" + data.forecast.forecastday[1].day.condition.icon;
     forecastSecondDay.innerHTML=data.forecast.forecastday[1].day.maxtemp_c;
     forecastSecondNight.innerHTML=data.forecast.forecastday[1].day.mintemp_c;
 
-    forecastWednesdayIcon.src=data.forecast.forecastday[2].day.condition.icon;
+    forecastWednesdayIcon.src="https:" + data.forecast.forecastday[2].day.condition.icon;
     forecastWednesdayDay.innerHTML=data.forecast.forecastday[2].day.maxtemp_c;
     forecastWednesdayNight.innerHTML=data.forecast.forecastday[2].day.mintemp_c;
 
-    forecastThursdayIcon.src=data.forecast.forecastday[3].day.condition.icon;
+    forecastThursdayIcon.src="https:" + data.forecast.forecastday[3].day.condition.icon;
     forecastThursdayDay.innerHTML=data.forecast.forecastday[3].day.maxtemp_c;
     forecastThursdayNight.innerHTML=data.forecast.forecastday[3].day.mintemp_c;
 
-    forecastFridayIcon.src=data.forecast.forecastday[4].day.condition.icon;
+    forecastFridayIcon.src="https:" + data.forecast.forecastday[4].day.condition.icon;
     forecastFridayDay.innerHTML=data.forecast.forecastday[4].day.maxtemp_c;
     forecastFridayNight.innerHTML=data.forecast.forecastday[4].day.mintemp_c;
 
-    forecastSaturdayIcon.src=data.forecast.forecastday[5].day.condition.icon;
+    forecastSaturdayIcon.src="https:" + data.forecast.forecastday[5].day.condition.icon;
     forecastSaturdayDay.innerHTML=data.forecast.forecastday[5].day.maxtemp_c;
     forecastSaturdayNight.innerHTML=data.forecast.forecastday[5].day.mintemp_c;
 
-    forecastSundayIcon.src=data.forecast.forecastday[6].day.condition.icon;
+    forecastSundayIcon.src="https:" + data.forecast.forecastday[6].day.condition.icon;
     forecastSundayDay.innerHTML=data.forecast.forecastday[6].day.maxtemp_c;
     forecastSundayNight.innerHTML=data.forecast.forecastday[6].day.mintemp_c;
 
@@ -111,7 +111,7 @@ async function fetWeather(locationCity) {
     forecastEventFirst.addEventListener("click",()=>{
         currentTemp.innerText = data.current.temp_c;
         currentHumidity.innerText=data.current.humidity;
-        currentIcon.src = data.current.condition.icon;
+        currentIcon.src = "https:" + data.current.condition.icon;
         currentPressure.innerText=data.current.pressure_mb;
         currentWindspeed.innerText=data.current.wind_kph;
         document.getElementById('current-date').innerHTML=dayFirst;
@@ -163,7 +163,7 @@ async function fetWeather(locationCity) {
         document.getElementById('current-date').innerHTML=daySixth;
     });
 
-    let forecastEventSeventh = document.getElementById("forecast-sunday")
+    let forecastEventSeventh = document.getElementById("p")
 
     forecastEventSeventh.addEventListener("click",()=>{
         currentTemp.innerText = data.forecast.forecastday[6].day.avgtemp_c;
